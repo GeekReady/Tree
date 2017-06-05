@@ -1,4 +1,7 @@
-package Tree.BinaryTree.BinarySearchTree;
+/**
+ * 
+ */
+package Tree.BinaryTree.BinarySearchTre;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -15,6 +18,7 @@ import java.util.TreeSet;
  * @author vinod<vinodpal458@gmail.com
  */
 public class BSTTraverse {
+	
 	public void levelOrderTravers(BSTNode root) {
 		Queue<BSTNode> queue = new LinkedList<BSTNode>();
 		queue.add(root);

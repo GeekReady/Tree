@@ -1,5 +1,7 @@
-
-package Tree.BinaryTree.BinarySearchTree;
+/**
+ * 
+ */
+package Tree.BinaryTree.BinarySearchTre;
 
 import java.util.Comparator;
 
@@ -53,7 +55,6 @@ public class BSTNode implements Comparator {
 	 * 
 	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 	 */
-	@Override
 	public int compare(Object o1, Object o2) {
 		BSTNode obj1 = (BSTNode) o1;
 		BSTNode obj2 = (BSTNode) o2;

@@ -36,7 +36,7 @@ public class BST_Check {
 		if (root == null) {
 			return true;
 		}
-		if (root.getData() < low || root.getData() > high)
+		if (root.getData() <= low || root.getData() >= high)
 			return false;
 		else {
 			return isBST(root.getLeft(), low, root.getData()) & isBST(root.getRight(), root.getData(), high);

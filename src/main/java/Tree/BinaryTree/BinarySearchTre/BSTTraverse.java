@@ -163,4 +163,29 @@ public class BSTTraverse {
 			}
 		}
 	}
+	
+	public void inOrderTraversByMirros(BSTNode root) {
+		BSTNode preNode;
+		while(root != null){
+			if(root.getLeft()==null){
+				System.out.print(root.getData()+" , ");
+				root = root.getRight();
+			}else{
+				preNode = root.getLeft();
+				while(preNode.getRight()!=null&&preNode.getRight()!=root){
+					preNode = preNode.getRight();
+				}
+				if(preNode.getRight()==null){
+					preNode.setRight(root);
+					root = root.getLeft();
+				}else{
+					System.out.print(root.getData()+" , ");
+					preNode.setRight(null);
+					root=root.getRight();
+				}
+			}
+		}
+		
+	}
+	
 }

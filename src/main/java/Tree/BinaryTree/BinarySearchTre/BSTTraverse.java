@@ -164,28 +164,62 @@ public class BSTTraverse {
 		}
 	}
 	
+	//In-Order Traverse According to Mirros
 	public void inOrderTraversByMirros(BSTNode root) {
 		BSTNode preNode;
-		while(root != null){
-			if(root.getLeft()==null){
-				System.out.print(root.getData()+" , ");
+		while (root != null) {
+			// Check current most left node
+			if (root.getLeft() == null) {
+				System.out.print(root.getData() + " , ");
 				root = root.getRight();
-			}else{
+			} else {
 				preNode = root.getLeft();
-				while(preNode.getRight()!=null&&preNode.getRight()!=root){
+				// Looking for node which is just small from current root node.
+				while (preNode.getRight() != null && preNode.getRight() != root) {
 					preNode = preNode.getRight();
-				}
-				if(preNode.getRight()==null){
+				} // If right most node of current root node from just small
+					// node.
+				if (preNode.getRight() == null) {
 					preNode.setRight(root);
 					root = root.getLeft();
-				}else{
-					System.out.print(root.getData()+" , ");
+				} else {
+					// If right most node of current root node is pointing
+					// current root node from it's right child.
+					System.out.print(root.getData() + " , ");
 					preNode.setRight(null);
-					root=root.getRight();
+					root = root.getRight();
 				}
 			}
 		}
-		
 	}
+		//Pre-Order Traverse According to Mirros
+	public void PreOrderTraversByMirros(BSTNode root) {
+		BSTNode preNode;
+		while (root != null) {
+			// Check current most left node
+			if (root.getLeft() == null) {
+				System.out.print(root.getData() + " , ");
+				root = root.getRight();
+			} else {
+				preNode = root.getLeft();
+				// Looking for node which is just small from current root node.
+				while (preNode.getRight() != null && preNode.getRight() != root) {
+					preNode = preNode.getRight();
+				} // If right most node of current root node from just small
+					// node.
+				if (preNode.getRight() == null) {
+					System.out.print(root.getData() + " , ");
+					preNode.setRight(root);
+					root = root.getLeft();
+				} else {
+					// If right most node of current root node is pointing
+					// current root node from it's right child.
+					preNode.setRight(null);
+					root = root.getRight();
+				}
+			}
+		}
+	}
+	
 	
 }

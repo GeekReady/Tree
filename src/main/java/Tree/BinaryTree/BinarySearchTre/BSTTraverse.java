@@ -221,5 +221,34 @@ public class BSTTraverse {
 		}
 	}
 	
+	//Post-Order Traverse According to Mirros
+		public void PostOrderTraversByMirros(BSTNode root) {
+			BSTNode preNode;
+			while (root != null) {
+				// Check current most left node
+				if (root.getRight() == null) {
+					System.out.print(root.getData() + " , ");
+					root = root.getLeft();
+				} else {
+					preNode = root.getRight();
+					// Looking for node which is just small from current root node.
+					while (preNode.getLeft() != null && preNode.getLeft() != root) {
+						preNode = preNode.getLeft();
+					} // If right most node of current root node from just small
+						// node.
+					if (preNode.getLeft() == null) {
+						System.out.print(preNode.getData() + " , ");
+						preNode.setLeft(root);
+						root = root.getRight();
+					} else {
+						// If right most node of current root node is pointing
+						// current root node from it's right child.
+						preNode.setLeft(null);
+						root = root.getLeft();
+					}
+				}
+			}
+		}
+	
 	
 }

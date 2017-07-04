@@ -52,4 +52,13 @@ public class ObtainKth {
 		return maxNode;
 	}
 
+	//Find kth smallest element by Mirros
+	public BSTNode getKthSmallestByMirros(BSTNode root, int k){
+		BSTNode tempNode = root;
+		while(root!=null){
+			
+		}
+		return null;
+		
+	}
 }

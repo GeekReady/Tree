@@ -53,8 +53,9 @@ public class ObtainKth {
 	}
 
 	//Find kth smallest element by Mirros
-	public BSTNode getKthNodeByMirros(BSTNode root, int k){
+	public BSTNode getKthNodeByMirros(BSTNode mainRoot, int k){
 		int count=0;
+		BSTNode root = mainRoot;
 		BSTNode tempNode = null;
 		while(root!=null){
 			if(root.getLeft()==null){

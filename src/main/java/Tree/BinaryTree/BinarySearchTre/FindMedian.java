@@ -8,8 +8,9 @@ package Tree.BinaryTree.BinarySearchTre;
 //http://www.geeksforgeeks.org/find-median-bst-time-o1-space/
 public class FindMedian {
 	//In-Order Traverse According to Mirros and get median of BST.
-	public int getMedian(BSTNode root){
+	public int getMedian(BSTNode mainRoot){
 		int countCurrent = 0;
+		BSTNode root = mainRoot;
 		int countNodes = (new CountInBST()).getNumberOfNodes(root);
 		BSTNode prev = null;
 		while(root!=null){

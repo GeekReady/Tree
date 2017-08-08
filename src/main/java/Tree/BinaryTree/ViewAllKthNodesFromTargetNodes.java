@@ -61,6 +61,7 @@ public class ViewAllKthNodesFromTargetNodes {
 		bst.display();
 		System.out.println();
 		ViewAllKthNodesFromTargetNodes object = new ViewAllKthNodesFromTargetNodes();
+		System.out.println("ROOT :"+bst.root.getData());
 		object.viewAllKthNodesFromTargetNodes(bst.root, bst.root.getRight(), 2);
 	}
 }

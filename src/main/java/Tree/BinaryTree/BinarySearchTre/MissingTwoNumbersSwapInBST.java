@@ -30,4 +30,54 @@ public class MissingTwoNumbersSwapInBST {
 		findMissingTwoNumbersSwapInBST(root.getRight());
 		// return root;
 	}
+	
+	//Currect BST of two missing number by mirror 
+	public void currectMissingTwoNumbersSwapInBST(BSTNode root){
+		
+		
+		BSTNode currentRoot = root;
+		BSTNode current = null;
+		while(currentRoot!=null){
+			
+			if(currentRoot.getLeft()==null){
+				System.out.print(currentRoot.getData()+ "   ");
+				currentRoot = currentRoot.getRight();
+			}
+			else{
+				current = currentRoot.getLeft();
+				while(current.getRight()!=null && current.getRight()!=currentRoot){
+					current = current.getRight();
+				}
+				if(current.getRight()==null){
+					current.setRight(currentRoot);
+					currentRoot = currentRoot.getLeft();
+				}
+				else{
+					System.out.print(currentRoot.getData()+ "   ");
+					current.setRight(null);
+					currentRoot = currentRoot.getRight();
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 }

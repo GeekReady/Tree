@@ -18,7 +18,7 @@ import java.util.TreeSet;
  * @author vinod<vinodpal458@gmail.com
  */
 public class BSTTraverse {
-	
+
 	public void levelOrderTravers(BSTNode root) {
 		Queue<BSTNode> queue = new LinkedList<BSTNode>();
 		queue.add(root);
@@ -38,15 +38,17 @@ public class BSTTraverse {
 		System.out.print(root.getData() + " , ");
 		showInOrder(root.getRight());
 	}
-	public void traverseInOrder(BSTNode root, ArrayList list){
-		if(root == null)
-			return ;
-		if(list==null)
+
+	public void traverseInOrder(BSTNode root, ArrayList list) {
+		if (root == null)
+			return;
+		if (list == null)
 			list = new ArrayList<BSTNode>();
 		traverseInOrder(root.getLeft(), list);
 		list.add(root);
 		traverseInOrder(root.getRight(), list);
 	}
+
 	public void showPreOrder(BSTNode root) {
 		if (root == null)
 			return;
@@ -63,25 +65,27 @@ public class BSTTraverse {
 		System.out.print(root.getData() + " , ");
 	}
 
-	
-	//Traverse inorder, its right child access first
+	// Traverse inorder, its right child access first
 	public void digonalSumView(BSTNode root,
 			int currentLevel/* ,Hashtable<Integer, Set<BSTNode>> hashTable */) {
 		if (root == null)
 			return;
-		//Traverse left side of current root node and update level as same for left of its level
+		// Traverse left side of current root node and update level as same for
+		// left of its level
 		digonalSumView(root.getRight(), currentLevel/* , hashTable */);
 		if (getHashTable().get(currentLevel) != null) {
 			Set list = (TreeSet) getHashTable().get(currentLevel);
 			list.add(root);
 			getHashTable().put(currentLevel, list);
 		} else {
-			//Get temporary store for insert new node which is in same diagonale  
+			// Get temporary store for insert new node which is in same
+			// diagonale
 			Set<BSTNode> list = new TreeSet<BSTNode>(new BSTNode());
 			list.add(root);
 			getHashTable().put(currentLevel, list);
 		}
-		//Traverse left side of current root node and update level +1 for left of its level
+		// Traverse left side of current root node and update level +1 for left
+		// of its level
 		digonalSumView(root.getLeft(), currentLevel + 1);
 	}
 
@@ -94,21 +98,22 @@ public class BSTTraverse {
 	public void setHashTable() {
 		this.hashTable = new Hashtable<Integer, Set<BSTNode>>();
 	}
-	
-	//Traverse tree as spiral order using by Deque. 
+
+	// Traverse tree as spiral order using by Deque.
 	public void spiralOrderTraversWithDeque(BSTNode root) {
 		Deque<BSTNode> deque = new LinkedList<BSTNode>();
 		if (root == null)
 			return;
 		BSTNode nullNode = null;
-		//add nullNode of BSTNode.
+		// add nullNode of BSTNode.
 		deque.add(nullNode);
-		deque.addFirst(root);//Add root node of binary tree.
+		deque.addFirst(root);// Add root node of binary tree.
 		boolean flag = false;
-		BSTNode tempNode = null; //Definition for temporary current parent node of binary tree.  
-		//Traversing all nodes of Binary tree
+		BSTNode tempNode = null; // Definition for temporary current parent node
+									// of binary tree.
+		// Traversing all nodes of Binary tree
 		while (deque.peekFirst() != null) {
-			if (flag == false) {//traverse for odd level of binary tree. 
+			if (flag == false) {// traverse for odd level of binary tree.
 				while (deque.peekFirst() != null) {
 					tempNode = deque.pollFirst();
 					if (tempNode.getRight() != null) {
@@ -123,7 +128,7 @@ public class BSTTraverse {
 			}
 			if (deque.peekLast() == null)
 				break;
-			if (flag == true) {//traverse for even level of binary tree.
+			if (flag == true) {// traverse for even level of binary tree.
 				while (deque.peekLast() != null) {
 					tempNode = deque.pollLast();
 					if (tempNode.getLeft() != null) {
@@ -138,7 +143,7 @@ public class BSTTraverse {
 			}
 		}
 	}
-	
+
 	public void spiralOrderTraversWithStack(BSTNode root) {
 		Stack<BSTNode> stack1 = new Stack<BSTNode>();
 		Stack<BSTNode> stack2 = new Stack<BSTNode>();
@@ -163,8 +168,8 @@ public class BSTTraverse {
 			}
 		}
 	}
-	
-	//In-Order Traverse According to Mirros
+
+	// In-Order Traverse According to Mirros
 	public void inOrderTraversByMirros(BSTNode root) {
 		BSTNode preNode;
 		while (root != null) {
@@ -192,7 +197,8 @@ public class BSTTraverse {
 			}
 		}
 	}
-		//Pre-Order Traverse According to Mirros
+
+	// Pre-Order Traverse According to Mirros
 	public void PreOrderTraversByMirros(BSTNode root) {
 		BSTNode preNode;
 		while (root != null) {
@@ -220,35 +226,34 @@ public class BSTTraverse {
 			}
 		}
 	}
-	
-	//Post-Order Traverse According to Mirros
-		public void PostOrderTraversByMirros(BSTNode root) {
-			BSTNode preNode;
-			while (root != null) {
-				// Check current most left node
-				if (root.getRight() == null) {
-					System.out.print(root.getData() + " , ");
-					root = root.getLeft();
+
+	// Post-Order Traverse According to Mirros
+	public void PostOrderTraversByMirros(BSTNode root) {
+		BSTNode preNode;
+		while (root != null) {
+			// Check current most left node
+			if (root.getRight() == null) {
+				System.out.print(root.getData() + " , ");
+				root = root.getLeft();
+			} else {
+				preNode = root.getRight();
+				// Looking for node which is just small from current root node.
+				while (preNode.getLeft() != null && preNode.getLeft() != root) {
+					preNode = preNode.getLeft();
+				} // If right most node of current root node from just small
+					// node.
+				if (preNode.getLeft() == null) {
+					System.out.print(preNode.getData() + " , ");
+					preNode.setLeft(root);
+					root = root.getRight();
 				} else {
-					preNode = root.getRight();
-					// Looking for node which is just small from current root node.
-					while (preNode.getLeft() != null && preNode.getLeft() != root) {
-						preNode = preNode.getLeft();
-					} // If right most node of current root node from just small
-						// node.
-					if (preNode.getLeft() == null) {
-						System.out.print(preNode.getData() + " , ");
-						preNode.setLeft(root);
-						root = root.getRight();
-					} else {
-						// If right most node of current root node is pointing
-						// current root node from it's right child.
-						preNode.setLeft(null);
-						root = root.getLeft();
-					}
+					// If right most node of current root node is pointing
+					// current root node from it's right child.
+					preNode.setLeft(null);
+					root = root.getLeft();
 				}
 			}
 		}
-	
-	
+	}
+
 }

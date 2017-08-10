@@ -30,7 +30,8 @@ public class LongestCommonAncenser {
 		int leftNode = getLowestCommonAncestor(curr.getLeft(), A, B);
 		int rightNode = getLowestCommonAncestor(curr.getRight(), A, B);
 
-		// If we found A and B in left or right subtree of the current node data,
+		// If we found A and B in left or right subtree of the current node
+		// data,
 		// this means current node is a common ancestor, so return the node data
 		if (leftNode != -1 && rightNode != -1)
 			return curr.getData();
@@ -43,6 +44,7 @@ public class LongestCommonAncenser {
 			return leftNode;
 		}
 	}
+
 	public BSTNode getLowestCommonAncestorNode(BSTNode curr, int A, int B) {
 
 		if (curr == null) {

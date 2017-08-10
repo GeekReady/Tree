@@ -1,5 +1,6 @@
 package Tree.BinaryTree.BinarySearchTre;
 
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
@@ -276,6 +277,7 @@ public class BST_Method {
 	public void getNumberOfBST(int n) {
 		GenerateBSTs generateBSTs = new GenerateBSTs();
 		int[] solutionRecord = new int[n + 1];
+		Arrays.fill(solutionRecord, -1);
 		System.out.println(generateBSTs.getNumberOfBSTts(n, solutionRecord));
 	}
 

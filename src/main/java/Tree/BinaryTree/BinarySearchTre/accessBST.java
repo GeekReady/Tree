@@ -28,8 +28,10 @@ public class accessBST {
 		bst.insertAsBalance(array);
 		bst.display();
 		System.out.println();
+		
+		bst.getNumberOfBST(3);
 		//Currect Missing number 
-		bst.currectMissingTwoNumbersSwapInBST(null);
+		//bst.currectMissingTwoNumbersSwapInBST(null);
 		
 		/*bst.printPostOrderTraverse(null);
 		System.out.println();

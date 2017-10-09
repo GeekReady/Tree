@@ -331,4 +331,7 @@ public class BST_Method {
 		MissingTwoNumbersSwapInBST object = new MissingTwoNumbersSwapInBST();
 		object.currectMissingTwoNumbersSwapInBST(root);
 	}
+	public void topView(){
+		TopView.topView(root);
+	}
 }

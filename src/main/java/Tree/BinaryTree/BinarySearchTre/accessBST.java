@@ -11,7 +11,7 @@ public class accessBST {
 	public static void main(String... args) {
 		BST_Method bst = new BST_Method();
 
-		int[] array = /*{ 8, 1, 6, 2, 3, 4, 5 };*/{19,21,46,20,10,30,25,40};//{ 2, 1, 4, 8, 5 };
+		int[] array = {47,2,40,20,38,30,14,28,10,16,19,44,39,27,7,9,31,12,43,21,5,41,34,49,13,33,3,4,25,22,29,15,32,35,6,24,23,26,1,11,42,36,37,17,18,8,45,48,50,46};/*{ 8, 1, 6, 2, 3, 4, 5 };*///{19,21,46,20,10,30,25,40};//{ 2, 1, 4, 8, 5 };
 	/*	for (int i = 0; i < array.length; ++i) {
 			bst.insert(array[i]);
 		}
@@ -28,8 +28,8 @@ public class accessBST {
 		bst.insertAsBalance(array);
 		bst.display();
 		System.out.println();
-		
-		bst.getNumberOfBST(3);
+		bst.topView();
+		//bst.getNumberOfBST(3);
 		//Currect Missing number 
 		//bst.currectMissingTwoNumbersSwapInBST(null);
 		

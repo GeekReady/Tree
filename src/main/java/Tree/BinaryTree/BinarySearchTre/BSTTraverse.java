@@ -218,6 +218,7 @@ public class BSTTraverse {
 				} else {
 					// If right most node of current root node is pointing
 					// current root node from it's right child.
+					System.out.print(preNode.getData() + " , ");
 					preNode.setRight(null);
 					root = root.getRight();
 				}
